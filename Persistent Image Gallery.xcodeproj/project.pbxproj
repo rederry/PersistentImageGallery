@@ -9,23 +9,35 @@
 /* Begin PBXBuildFile section */
 		EE82E15920109447003CC498 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82E15820109447003CC498 /* AppDelegate.swift */; };
 		EE82E15B20109447003CC498 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82E15A20109447003CC498 /* DocumentBrowserViewController.swift */; };
-		EE82E15D20109447003CC498 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82E15C20109447003CC498 /* DocumentViewController.swift */; };
-		EE82E15F20109447003CC498 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82E15E20109447003CC498 /* Document.swift */; };
 		EE82E16220109447003CC498 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE82E16020109447003CC498 /* Main.storyboard */; };
 		EE82E16420109447003CC498 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE82E16320109447003CC498 /* Assets.xcassets */; };
 		EE82E16720109447003CC498 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE82E16520109447003CC498 /* LaunchScreen.storyboard */; };
+		EE82E173201097B1003CC498 /* ImageGalleryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82E16F201097B1003CC498 /* ImageGalleryCollectionViewController.swift */; };
+		EE82E174201097B1003CC498 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82E170201097B1003CC498 /* ImageCollectionViewCell.swift */; };
+		EE82E175201097B1003CC498 /* TrashBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82E171201097B1003CC498 /* TrashBarButtonItem.swift */; };
+		EE82E176201097B1003CC498 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82E172201097B1003CC498 /* ImageDetailViewController.swift */; };
+		EE82E17B201097D6003CC498 /* ImageGalleries.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82E179201097D6003CC498 /* ImageGalleries.swift */; };
+		EE82E17C201097D6003CC498 /* ImageGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82E17A201097D6003CC498 /* ImageGallery.swift */; };
+		EE82E17E20109844003CC498 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82E17D20109844003CC498 /* Utilities.swift */; };
+		EE82E18020109970003CC498 /* ImageGalleryDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82E17F20109970003CC498 /* ImageGalleryDocument.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EE82E15520109447003CC498 /* Persistent Image Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Persistent Image Gallery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE82E15820109447003CC498 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE82E15A20109447003CC498 /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
-		EE82E15C20109447003CC498 /* DocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
-		EE82E15E20109447003CC498 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		EE82E16120109447003CC498 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EE82E16320109447003CC498 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE82E16620109447003CC498 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE82E16820109447003CC498 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE82E16F201097B1003CC498 /* ImageGalleryCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryCollectionViewController.swift; sourceTree = "<group>"; };
+		EE82E170201097B1003CC498 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		EE82E171201097B1003CC498 /* TrashBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashBarButtonItem.swift; sourceTree = "<group>"; };
+		EE82E172201097B1003CC498 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
+		EE82E179201097D6003CC498 /* ImageGalleries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleries.swift; sourceTree = "<group>"; };
+		EE82E17A201097D6003CC498 /* ImageGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGallery.swift; sourceTree = "<group>"; };
+		EE82E17D20109844003CC498 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		EE82E17F20109970003CC498 /* ImageGalleryDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryDocument.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +70,46 @@
 		EE82E15720109447003CC498 /* Persistent Image Gallery */ = {
 			isa = PBXGroup;
 			children = (
-				EE82E15820109447003CC498 /* AppDelegate.swift */,
-				EE82E15A20109447003CC498 /* DocumentBrowserViewController.swift */,
-				EE82E15C20109447003CC498 /* DocumentViewController.swift */,
-				EE82E15E20109447003CC498 /* Document.swift */,
 				EE82E16020109447003CC498 /* Main.storyboard */,
-				EE82E16320109447003CC498 /* Assets.xcassets */,
-				EE82E16520109447003CC498 /* LaunchScreen.storyboard */,
+				EE82E15A20109447003CC498 /* DocumentBrowserViewController.swift */,
+				EE82E172201097B1003CC498 /* ImageDetailViewController.swift */,
+				EE82E16F201097B1003CC498 /* ImageGalleryCollectionViewController.swift */,
+				EE82E18520109A53003CC498 /* View */,
+				EE82E18420109A30003CC498 /* Model */,
+				EE82E16E20109457003CC498 /* Supporting Files */,
 				EE82E16820109447003CC498 /* Info.plist */,
 			);
 			path = "Persistent Image Gallery";
+			sourceTree = "<group>";
+		};
+		EE82E16E20109457003CC498 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE82E17D20109844003CC498 /* Utilities.swift */,
+				EE82E15820109447003CC498 /* AppDelegate.swift */,
+				EE82E16320109447003CC498 /* Assets.xcassets */,
+				EE82E16520109447003CC498 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EE82E18420109A30003CC498 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE82E17F20109970003CC498 /* ImageGalleryDocument.swift */,
+				EE82E179201097D6003CC498 /* ImageGalleries.swift */,
+				EE82E17A201097D6003CC498 /* ImageGallery.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EE82E18520109A53003CC498 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EE82E170201097B1003CC498 /* ImageCollectionViewCell.swift */,
+				EE82E171201097B1003CC498 /* TrashBarButtonItem.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,10 +184,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE82E15F20109447003CC498 /* Document.swift in Sources */,
-				EE82E15D20109447003CC498 /* DocumentViewController.swift in Sources */,
+				EE82E17C201097D6003CC498 /* ImageGallery.swift in Sources */,
+				EE82E174201097B1003CC498 /* ImageCollectionViewCell.swift in Sources */,
+				EE82E17B201097D6003CC498 /* ImageGalleries.swift in Sources */,
+				EE82E176201097B1003CC498 /* ImageDetailViewController.swift in Sources */,
 				EE82E15B20109447003CC498 /* DocumentBrowserViewController.swift in Sources */,
+				EE82E175201097B1003CC498 /* TrashBarButtonItem.swift in Sources */,
 				EE82E15920109447003CC498 /* AppDelegate.swift in Sources */,
+				EE82E18020109970003CC498 /* ImageGalleryDocument.swift in Sources */,
+				EE82E17E20109844003CC498 /* Utilities.swift in Sources */,
+				EE82E173201097B1003CC498 /* ImageGalleryCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
