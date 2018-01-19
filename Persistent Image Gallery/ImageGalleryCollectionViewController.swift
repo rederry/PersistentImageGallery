@@ -163,6 +163,19 @@ class ImageGalleryCollectionViewController: UICollectionViewController, UICollec
         }
     }
     
+    @IBAction func save(_ sender: UIBarButtonItem) {
+        if let json = imageGallery.json {
+            if let url = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("untitled.json") {
+                do {
+                    try json.write(to: url)
+                    print("saved")
+                } catch {
+                    print("not saved")
+                }
+            }
+        }
+    }
+    
     private var currentDragIndexPaths = [IndexPath]()
     
     /// Drag a list of item at the indexPath

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NGo-pK-xRY">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,12 +24,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="26" y="654"/>
+            <point key="canvasLocation" x="-35" y="654"/>
         </scene>
         <!--Image Gallery Collection View Controller-->
         <scene sceneID="Qxa-JD-RHd">
             <objects>
-                <collectionViewController id="NRr-Xn-5Lm" customClass="ImageGalleryCollectionViewController" customModule="ImageGallery" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="NRr-Xn-5Lm" customClass="ImageGalleryCollectionViewController" customModule="Persistent_Image_Gallery" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Hm7-Mj-F4H">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,7 +41,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryImageCell" id="Kf4-tM-8AM" customClass="ImageCollectionViewCell" customModule="ImageGallery" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryImageCell" id="Kf4-tM-8AM" customClass="ImageCollectionViewCell" customModule="Persistent_Image_Gallery" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="111" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -69,7 +70,7 @@
                                     <outlet property="spinner" destination="8N4-HT-pcc" id="tPv-jK-4Fq"/>
                                 </connections>
                             </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DropPlaceholderCell" id="5sf-jo-vSB" customClass="ImageCollectionViewCell" customModule="ImageGallery" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DropPlaceholderCell" id="5sf-jo-vSB" customClass="ImageCollectionViewCell" customModule="Persistent_Image_Gallery" customModuleProvider="target">
                                 <rect key="frame" x="130.5" y="0.0" width="111" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -94,11 +95,18 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="7sr-iy-s7s">
-                        <barButtonItem key="rightBarButtonItem" springLoaded="YES" systemItem="trash" id="ENj-sb-FLQ">
-                            <connections>
-                                <action selector="deleteCell:" destination="NRr-Xn-5Lm" id="2cc-bt-8K1"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem springLoaded="YES" systemItem="trash" id="ENj-sb-FLQ">
+                                <connections>
+                                    <action selector="deleteCell:" destination="NRr-Xn-5Lm" id="2cc-bt-8K1"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem style="plain" systemItem="save" id="GhT-lm-aS0">
+                                <connections>
+                                    <action selector="save:" destination="NRr-Xn-5Lm" id="8An-ZV-trM"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="trashBarButtonItem" destination="ENj-sb-FLQ" id="BRS-Dg-NWx"/>
@@ -114,7 +122,7 @@
         <!--Image Detail View Controller-->
         <scene sceneID="WCg-Vn-blk">
             <objects>
-                <viewController id="bTN-f1-iLb" customClass="ImageDetailViewController" customModule="ImageGallery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bTN-f1-iLb" customClass="ImageDetailViewController" customModule="Persistent_Image_Gallery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OYj-06-qxO">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

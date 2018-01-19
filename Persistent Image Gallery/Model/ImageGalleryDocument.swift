@@ -9,5 +9,5 @@
 import UIKit
 
 class ImageGalleryDocument: UIDocument {
-
+    var imageGallery: ImageGallery?
 }
