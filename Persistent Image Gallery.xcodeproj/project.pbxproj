@@ -72,8 +72,8 @@
 			children = (
 				EE82E16020109447003CC498 /* Main.storyboard */,
 				EE82E15A20109447003CC498 /* DocumentBrowserViewController.swift */,
-				EE82E172201097B1003CC498 /* ImageDetailViewController.swift */,
 				EE82E16F201097B1003CC498 /* ImageGalleryCollectionViewController.swift */,
+				EE82E172201097B1003CC498 /* ImageDetailViewController.swift */,
 				EE82E18520109A53003CC498 /* View */,
 				EE82E18420109A30003CC498 /* Model */,
 				EE82E16E20109457003CC498 /* Supporting Files */,

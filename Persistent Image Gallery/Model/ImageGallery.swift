@@ -21,6 +21,16 @@ class ImageGallery: Codable {
         return try? JSONEncoder().encode(self)
     }
     
+    init?(json: Data) {
+        if let newValue = try? JSONDecoder().decode(ImageGallery.self, from: json) {
+            name = newValue.name
+            images = newValue.images
+        } else {
+            return nil
+        }
+        
+    }
+    
     init(name: String) {
         self.name = name
     }

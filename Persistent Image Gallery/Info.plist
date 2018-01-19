@@ -10,14 +10,14 @@
 			<key>CFBundleTypeIconFiles</key>
 			<array/>
 			<key>CFBundleTypeName</key>
-			<string>Images</string>
+			<string>ImageGallery</string>
 			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
+			<string>Editor</string>
 			<key>LSHandlerRank</key>
-			<string>Alternate</string>
+			<string>Owner</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>public.image</string>
+				<string>com.rederry.imagegallery</string>
 			</array>
 		</dict>
 	</array>
@@ -71,6 +71,11 @@
 			<string>ImageGallery</string>
 			<key>UTTypeIdentifier</key>
 			<string>com.rederry.imagegallery</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<string>ig</string>
+			</dict>
 		</dict>
 	</array>
 	<key>UTImportedTypeDeclarations</key>

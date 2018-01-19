@@ -13,10 +13,9 @@ private let showDetailSegue = "Show Image Detail"
 
 class ImageGalleryCollectionViewController: UICollectionViewController, UICollectionViewDropDelegate, UICollectionViewDragDelegate, UICollectionViewDelegateFlowLayout {
     
-    var imageGallery = ImageGallery(name: "tt") {
+    var imageGallery: ImageGallery? {
         didSet {
             if !(imageGallery === oldValue) {
-                print("reload")
                 collectionView?.reloadData()
             }
         }
@@ -71,9 +70,10 @@ class ImageGalleryCollectionViewController: UICollectionViewController, UICollec
             if let sourceIndexPath = item.sourceIndexPath { // Drag locally
                 if  (item.dragItem.localObject as? UIImage) != nil {
                     collectionView.performBatchUpdates({
-                        let removedImageModel = imageGallery.images.remove(at: sourceIndexPath.item)
-                        imageGallery.images.insert(removedImageModel, at: indexPath.item)
-                        collectionView.moveItem(at: sourceIndexPath, to: destinationIndexPath)
+                        if let removedImageModel = imageGallery?.images.remove(at: sourceIndexPath.item) {
+                            imageGallery?.images.insert(removedImageModel, at: indexPath.item)
+                            collectionView.moveItem(at: sourceIndexPath, to: destinationIndexPath) }
+                        
                     })
                     coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
                 }
@@ -93,7 +93,7 @@ class ImageGalleryCollectionViewController: UICollectionViewController, UICollec
                             placeHolderContext.commitInsertion(dataSourceUpdates: { (insertionIndexPath) in
                                 // MARK: Warning
                                 let imageModel = ImageGallery.ImageModel(url: (url as URL).imageURL, aspectRatio: Double(localAspectRatio))
-                                self.imageGallery.images.insert(imageModel, at: insertionIndexPath.item)
+                                self.imageGallery?.images.insert(imageModel, at: insertionIndexPath.item)
                             })
                         } else {
                             placeHolderContext.deletePlaceholder()
@@ -112,14 +112,14 @@ class ImageGalleryCollectionViewController: UICollectionViewController, UICollec
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageGallery.images.count
+        return imageGallery?.images.count ?? 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         // Configure the cell
         if let imageCell = cell as? ImageCollectionViewCell {
-            imageCell.imageURL = imageGallery.images[indexPath.item].url
+            imageCell.imageURL = imageGallery?.images[indexPath.item].url
         }
         return cell
     }
@@ -136,7 +136,7 @@ class ImageGalleryCollectionViewController: UICollectionViewController, UICollec
             case showDetailSegue:
                 if let indexPath = sender as? IndexPath,
                    let imgvc = segue.destination as? ImageDetailViewController {
-                    imgvc.imageURL = imageGallery.images[indexPath.item].url
+                    imgvc.imageURL = imageGallery?.images[indexPath.item].url
                 }
             default: break
             }
@@ -145,7 +145,7 @@ class ImageGalleryCollectionViewController: UICollectionViewController, UICollec
     
     // MARK: - UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: cellWidth, height: cellWidth * CGFloat(imageGallery.images[indexPath.item].aspectRatio))
+        return CGSize(width: cellWidth, height: cellWidth * CGFloat(imageGallery?.images[indexPath.item].aspectRatio ?? Double(cellWidth)))
     }
     
     // MARK: - Private Implementations
@@ -157,21 +157,31 @@ class ImageGalleryCollectionViewController: UICollectionViewController, UICollec
     @IBAction private func deleteCell(_ sender: TrashBarButtonItem) {
         if !currentDragIndexPaths.isEmpty {
             if let indexToRemove = currentDragIndexPaths.first?.item {
-                imageGallery.images.remove(at: indexToRemove)
+                imageGallery?.images.remove(at: indexToRemove)
                 collectionView?.reloadData()
             }
         }
     }
     
     @IBAction func save(_ sender: UIBarButtonItem) {
-        if let json = imageGallery.json {
-            if let url = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("untitled.json") {
+        if let json = imageGallery?.json {
+            if let url = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("untitled.ig") {
                 do {
                     try json.write(to: url)
                     print("saved")
                 } catch {
                     print("not saved")
                 }
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let url = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("untitled.ig") {
+            if let jsonData = try? Data(contentsOf: url) {
+                imageGallery = ImageGallery(json: jsonData)
             }
         }
     }
