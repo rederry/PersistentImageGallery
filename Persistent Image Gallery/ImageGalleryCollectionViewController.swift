@@ -20,6 +20,8 @@ class ImageGalleryCollectionViewController: UICollectionViewController, UICollec
             }
         }
     }
+    
+    var document: ImageGalleryDocument?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,17 @@ class ImageGalleryCollectionViewController: UICollectionViewController, UICollec
         collectionView?.addGestureRecognizer(pinch)
         
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        document?.open(completionHandler: { (success) in
+            if success {
+                self.title = self.document?.localizedName
+                self.imageGallery = self.document?.imageGallery
+            }
+        })
     }
     
     // MARK: - UICollectionViewDragDelegate
@@ -164,25 +177,9 @@ class ImageGalleryCollectionViewController: UICollectionViewController, UICollec
     }
     
     @IBAction func save(_ sender: UIBarButtonItem) {
-        if let json = imageGallery?.json {
-            if let url = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("untitled.ig") {
-                do {
-                    try json.write(to: url)
-                    print("saved")
-                } catch {
-                    print("not saved")
-                }
-            }
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if let url = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("untitled.ig") {
-            if let jsonData = try? Data(contentsOf: url) {
-                imageGallery = ImageGallery(json: jsonData)
-            }
+        document?.imageGallery = imageGallery
+        if document?.imageGallery != nil {
+            document?.updateChangeCount(.done)
         }
     }
     

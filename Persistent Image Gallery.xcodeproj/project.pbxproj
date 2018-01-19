@@ -16,7 +16,6 @@
 		EE82E174201097B1003CC498 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82E170201097B1003CC498 /* ImageCollectionViewCell.swift */; };
 		EE82E175201097B1003CC498 /* TrashBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82E171201097B1003CC498 /* TrashBarButtonItem.swift */; };
 		EE82E176201097B1003CC498 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82E172201097B1003CC498 /* ImageDetailViewController.swift */; };
-		EE82E17B201097D6003CC498 /* ImageGalleries.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82E179201097D6003CC498 /* ImageGalleries.swift */; };
 		EE82E17C201097D6003CC498 /* ImageGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82E17A201097D6003CC498 /* ImageGallery.swift */; };
 		EE82E17E20109844003CC498 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82E17D20109844003CC498 /* Utilities.swift */; };
 		EE82E18020109970003CC498 /* ImageGalleryDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82E17F20109970003CC498 /* ImageGalleryDocument.swift */; };
@@ -34,7 +33,6 @@
 		EE82E170201097B1003CC498 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		EE82E171201097B1003CC498 /* TrashBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashBarButtonItem.swift; sourceTree = "<group>"; };
 		EE82E172201097B1003CC498 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
-		EE82E179201097D6003CC498 /* ImageGalleries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleries.swift; sourceTree = "<group>"; };
 		EE82E17A201097D6003CC498 /* ImageGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGallery.swift; sourceTree = "<group>"; };
 		EE82E17D20109844003CC498 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		EE82E17F20109970003CC498 /* ImageGalleryDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryDocument.swift; sourceTree = "<group>"; };
@@ -98,7 +96,6 @@
 			children = (
 				EE82E17A201097D6003CC498 /* ImageGallery.swift */,
 				EE82E17F20109970003CC498 /* ImageGalleryDocument.swift */,
-				EE82E179201097D6003CC498 /* ImageGalleries.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -186,7 +183,6 @@
 			files = (
 				EE82E17C201097D6003CC498 /* ImageGallery.swift in Sources */,
 				EE82E174201097B1003CC498 /* ImageCollectionViewCell.swift in Sources */,
-				EE82E17B201097D6003CC498 /* ImageGalleries.swift in Sources */,
 				EE82E176201097B1003CC498 /* ImageDetailViewController.swift in Sources */,
 				EE82E15B20109447003CC498 /* DocumentBrowserViewController.swift in Sources */,
 				EE82E175201097B1003CC498 /* TrashBarButtonItem.swift in Sources */,

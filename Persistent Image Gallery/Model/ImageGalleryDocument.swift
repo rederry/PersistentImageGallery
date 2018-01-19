@@ -13,10 +13,12 @@ class ImageGalleryDocument: UIDocument {
     var imageGallery: ImageGallery?
     
     override func contents(forType typeName: String) throws -> Any {
-        return Data()
+        return imageGallery?.json ?? Data()
     }
     
     override func load(fromContents contents: Any, ofType typeName: String?) throws {
-        
+        if let jsonData = contents as? Data {
+            imageGallery = ImageGallery(json: jsonData)
+        }
     }
 }
