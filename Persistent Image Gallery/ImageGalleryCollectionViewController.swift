@@ -23,10 +23,12 @@ class ImageGalleryCollectionViewController: UICollectionViewController, UICollec
     
     var document: ImageGalleryDocument?
     
+    // TODO: Autosave bug
     func documentChanged() {
         document?.imageGallery = imageGallery
         if document?.imageGallery != nil {
             document?.updateChangeCount(.done)
+            print("Auto saved")
         }
     }
 
@@ -56,6 +58,7 @@ class ImageGalleryCollectionViewController: UICollectionViewController, UICollec
                 self.imageGallery = self.document?.imageGallery
             }
         })
+
     }
     
     // MARK: - UICollectionViewDragDelegate
@@ -186,6 +189,7 @@ class ImageGalleryCollectionViewController: UICollectionViewController, UICollec
             if let indexToRemove = currentDragIndexPaths.first?.item {
                 imageGallery?.images.remove(at: indexToRemove)
                 collectionView?.reloadData()
+                documentChanged()
             }
         }
     }

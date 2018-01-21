@@ -55,7 +55,6 @@
                                         </activityIndicatorView>
                                     </subviews>
                                 </view>
-                                <color key="backgroundColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Tic-a6-Ow0" secondAttribute="trailing" id="EXm-5I-fbh"/>
                                     <constraint firstItem="8N4-HT-pcc" firstAttribute="centerX" secondItem="Tic-a6-Ow0" secondAttribute="centerX" id="F95-ai-4RT"/>
@@ -81,7 +80,6 @@
                                         </activityIndicatorView>
                                     </subviews>
                                 </view>
-                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="LUv-96-m0O" firstAttribute="centerY" secondItem="5sf-jo-vSB" secondAttribute="centerY" id="Vdv-1q-6RS"/>
                                     <constraint firstItem="LUv-96-m0O" firstAttribute="centerX" secondItem="5sf-jo-vSB" secondAttribute="centerX" id="tiN-RF-0Nd"/>

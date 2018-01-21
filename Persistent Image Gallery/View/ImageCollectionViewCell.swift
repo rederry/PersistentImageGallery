@@ -33,16 +33,38 @@ class ImageCollectionViewCell: UICollectionViewCell {
     }
     
     private func fetchImage() {
+        
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        
         if let url = imageURL {
             spinner.startAnimating()
-            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-                let data = try? Data(contentsOf: url)
-                DispatchQueue.main.async {
-                    if let imageData = data, url == self?.imageURL {
-                        self?.image = UIImage(data: imageData)
+            
+            let urlRequest = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad)
+            if let cacheResponse = URLCache.shared.cachedResponse(for: urlRequest) {
+                self.image = UIImage(data: cacheResponse.data)
+            } else {
+                session.dataTask(with: urlRequest, completionHandler: { [weak self] (data, response, error) in
+                    DispatchQueue.main.async {
+                        if let imageData = data, url == self?.imageURL {
+                            self?.image = UIImage(data: imageData)
+                            URLCache.shared.storeCachedResponse(CachedURLResponse(response: response!, data: imageData), for: urlRequest)
+                        } else {
+                            self?.image = UIImage(named: "close_red")
+                        }
                     }
-                }
+                }).resume()
             }
+            
+//            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+//                let data = try? Data(contentsOf: url)
+//                DispatchQueue.main.async {
+//                    if let imageData = data, url == self?.imageURL {
+//                        self?.image = UIImage(data: imageData)
+//                    } else {
+//                        self?.image = UIImage(named: "close_red")
+//                    }
+//                }
+//            }
         }
     }
 }
