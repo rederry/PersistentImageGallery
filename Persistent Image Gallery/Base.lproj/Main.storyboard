@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NGo-pK-xRY">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -95,18 +94,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="7sr-iy-s7s">
-                        <rightBarButtonItems>
-                            <barButtonItem springLoaded="YES" systemItem="trash" id="ENj-sb-FLQ">
-                                <connections>
-                                    <action selector="deleteCell:" destination="NRr-Xn-5Lm" id="2cc-bt-8K1"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="save" id="GhT-lm-aS0">
-                                <connections>
-                                    <action selector="save:" destination="NRr-Xn-5Lm" id="8An-ZV-trM"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" springLoaded="YES" systemItem="trash" id="ENj-sb-FLQ">
+                            <connections>
+                                <action selector="deleteCell:" destination="NRr-Xn-5Lm" id="2cc-bt-8K1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="trashBarButtonItem" destination="ENj-sb-FLQ" id="BRS-Dg-NWx"/>

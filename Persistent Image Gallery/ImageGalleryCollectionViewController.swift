@@ -22,7 +22,15 @@ class ImageGalleryCollectionViewController: UICollectionViewController, UICollec
     }
     
     var document: ImageGalleryDocument?
+    
+    func documentChanged() {
+        document?.imageGallery = imageGallery
+        if document?.imageGallery != nil {
+            document?.updateChangeCount(.done)
+        }
+    }
 
+    // MARK: - ViewController Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,6 +44,11 @@ class ImageGalleryCollectionViewController: UICollectionViewController, UICollec
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // Just for test
+        if let documentURL = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("untitled.ig") {
+            document = ImageGalleryDocument(fileURL: documentURL)
+        }
         
         document?.open(completionHandler: { (success) in
             if success {
@@ -86,8 +99,8 @@ class ImageGalleryCollectionViewController: UICollectionViewController, UICollec
                         if let removedImageModel = imageGallery?.images.remove(at: sourceIndexPath.item) {
                             imageGallery?.images.insert(removedImageModel, at: indexPath.item)
                             collectionView.moveItem(at: sourceIndexPath, to: destinationIndexPath) }
-                        
                     })
+                    documentChanged()
                     coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
                 }
             } else { // // Drag from other app
@@ -107,6 +120,7 @@ class ImageGalleryCollectionViewController: UICollectionViewController, UICollec
                                 // MARK: Warning
                                 let imageModel = ImageGallery.ImageModel(url: (url as URL).imageURL, aspectRatio: Double(localAspectRatio))
                                 self.imageGallery?.images.insert(imageModel, at: insertionIndexPath.item)
+                                self.documentChanged()
                             })
                         } else {
                             placeHolderContext.deletePlaceholder()
@@ -173,13 +187,6 @@ class ImageGalleryCollectionViewController: UICollectionViewController, UICollec
                 imageGallery?.images.remove(at: indexToRemove)
                 collectionView?.reloadData()
             }
-        }
-    }
-    
-    @IBAction func save(_ sender: UIBarButtonItem) {
-        document?.imageGallery = imageGallery
-        if document?.imageGallery != nil {
-            document?.updateChangeCount(.done)
         }
     }
     

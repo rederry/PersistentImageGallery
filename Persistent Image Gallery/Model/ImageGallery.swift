@@ -28,7 +28,6 @@ class ImageGallery: Codable {
         } else {
             return nil
         }
-        
     }
     
     init(name: String) {
